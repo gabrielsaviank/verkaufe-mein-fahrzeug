@@ -1,4 +1,12 @@
-import { Controller } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 
-@Controller('users')
-export class UsersController {}
+import { CreateUserDto } from './dtos/create-user.dto';
+
+@Controller('auth')
+export class UsersController {
+    @Post('/signup')
+    createUser(@Body() body: CreateUserDto) {
+        // The DTO behind will validate incoming request bodies
+        console.log(body);
+    }
+}
