@@ -15,10 +15,11 @@ import { Reports } from './reports/reports.entity';
       type: 'sqlite',
       database: 'db.sqlite',
       entities: [User, Reports],
+      //SYNCHRONISE IS ONLY USED IN DEVELOPMENT ENV
       synchronize: true,
     }),
-    UsersModule, 
-    ReportsModule
+    UsersModule,
+    ReportsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
