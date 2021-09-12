@@ -18,18 +18,23 @@ export class UsersService {
   }
 
   find(email: string) {
-    this.repo.find({ email: email });
+    return this.repo.find({ email });
   }
 
   async update(id: number, attrs: Partial<User>) {
     const user = await this.findOne(id);
     if (!user) {
-      throw new Error('Couldnt find user');
+      throw new Error('user not found');
     }
     Object.assign(user, attrs);
-
     return this.repo.save(user);
   }
 
-  // remove() {}
+  async remove(id: number) {
+    const user = await this.findOne(id);
+    if (!user) {
+      throw new Error('user not found');
+    }
+    return this.repo.remove(user);
+  }
 }
