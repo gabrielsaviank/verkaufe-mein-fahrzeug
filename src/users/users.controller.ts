@@ -8,6 +8,7 @@ import {
   Param,
   Query,
   NotFoundException,
+  Session,
 } from '@nestjs/common';
 
 import { CreateUserDto } from './dtos/create-user.dto';
